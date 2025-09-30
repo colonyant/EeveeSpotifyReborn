@@ -1,0 +1,8 @@
+strategy:
+  matrix:
+    arch: [arm64e]   # or [arm64, arm64e] to build both
+steps:
+  - name: Build
+    run: |
+      make clean
+      make package ARCHS=${{ matrix.arch }} TARGET=iphone:clang:latest:13.0
